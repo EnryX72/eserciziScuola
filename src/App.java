@@ -54,7 +54,7 @@ public class App {
         System.out.println("");
         System.out.println("1 - Stampa un resoconto dei dati inseriti");
         System.out.println("2 - Riordina lista per nome");
-        System.out.println("2 - Riordina lista per voto");
+        System.out.println("3 - Riordina lista per voto");
         System.out.println("");
     }
 
@@ -68,6 +68,18 @@ public class App {
             case 1: {
                 // Stampa un resoconto dei dati inseriti
                 stampaRegistro(studenti, voti);
+                break;
+            }
+
+            case 2: {
+                // Riordina lista per nome
+                
+                break;
+            }
+
+            case 3: {
+                // Riordina lista per voto
+                
                 break;
             }
 
