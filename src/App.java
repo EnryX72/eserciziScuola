@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class App {
     static Scanner tastiera = new Scanner(System.in);
@@ -53,8 +52,7 @@ public class App {
         System.out.println("---------- MENU ----------");
         System.out.println("");
         System.out.println("1 - Stampa un resoconto dei dati inseriti");
-        System.out.println("2 - Riordina lista per nome");
-        System.out.println("3 - Riordina lista per voto");
+        System.out.println("2 - Imposta le iniziali dei nomi maiuscole");
         System.out.println("");
     }
 
@@ -72,14 +70,8 @@ public class App {
             }
 
             case 2: {
-                // Riordina lista per nome
-                
-                break;
-            }
-
-            case 3: {
-                // Riordina lista per voto
-                
+                // Imposta le iniziali dei nomi maiuscole
+                nomiMaiuscole(studenti);
                 break;
             }
 
@@ -138,6 +130,25 @@ public class App {
     public static void stampaRegistro(String[] studenti, int[] voti) {
         for (int i = 0; i < nStudenti; i++) {
             System.out.println("Studente [" + (i + 1) + "] = Nome: " + studenti[i] + " | Voto: " + voti[i]);
+        }
+    }
+
+    /**
+     * Imposta le iniziali dei nomi degli studenti maiuscole
+     * 
+     * @param studenti array studenti
+     */
+    public static void nomiMaiuscole(String[] studenti){
+        for(int i = 0; i < nStudenti; i++){
+            String[] sezioni = studenti[i].split(" ");  //creo varie sezioni della stringa, le quali equivalgono ad una parola del nome
+            studenti[i] = "";   //azzero la stringa col nome
+            for(int j = 0; j < sezioni.length; j++){    //for che cicla le varie sezioni
+                studenti[i] += sezioni[j].substring(0, 1).toUpperCase() + sezioni[j].substring(1);
+                if(j != sezioni.length-1){  //se il contatore delle sezioni non e' all'ultima
+                    studenti[i] += " "; //aggiungi uno spazio dopo la sezione
+                }
+                //il nome dello studente si compone quindi da: sottostringa(0,1) ovvero primo carattere che diventa maiuscolo, e il resto che resta uguale
+            }
         }
     }
 }
